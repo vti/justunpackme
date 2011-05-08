@@ -18,9 +18,10 @@ sub run {
 
     my $res = $app->($self->env);
 
+    my $body = $res->[2];
     $self->res->code($res->[0]);
-    $self->res->headers($res->[1]);
-    $self->res->body($res->[2]);
+    $self->res->headers([@{$res->[1]}, 'Content-Length' => length($body->[0])]);
+    $self->res->body($body);
 }
 
 1;
