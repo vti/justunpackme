@@ -1,9 +1,188 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Based on http://www.sohtanaka.com/web-design/simple-tabs-w-css-jquery/ */
+ul.tabs {
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    height: 32px; /*--Set height of tabs--*/
+    border-bottom: 1px solid #999;
+    border-left: 1px solid #999;
+    width: 100%;
+}
+ul.tabs li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 31px; /*--Subtract 1px from the height of the unordered list--*/
+    line-height: 31px; /*--Vertically aligns the text within the tab--*/
+    border: 1px solid #999;
+    border-left: none;
+    margin-bottom: -1px; /*--Pull the list item down 1px--*/
+    overflow: hidden;
+    position: relative;
+    background: #e0e0e0;
+}
+ul.tabs li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 0 1em;
+    outline: none;
+}
+ul.tabs li a:hover {
+    background: #ccc;
+}
+html ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the active tab does not listen to the hover properties--*/
+    background: #fff;
+    border-bottom: 1px solid #fff; /*--Makes the active tab look like it's connected with its content--*/
+}
+
+.tab_container {
+    border: 1px solid #999;
+    border-top: none;
+
+    -webkit-border-radius: 0px 5px 5px 0px;
+    -moz-border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 0px 5px 5px;
+
+    overflow: hidden;
+    clear: both;
+    float: left;
+    width: 100%;
+}
+.tab_content {
+    padding:1em;
+}
+
+/* My styles */
+
+body {
+    padding:1em;
+    line-height: 1.5em;
+    font-size:12px;
+}
+
+#container {
+    width:950px;
+}
+
+#menu {
+    width:440px;
+}
+
+#header {
+    margin-bottom:2em;
+    border-bottom:1px solid #ccc;
+}
+
+#header h1 {
+    margin-bottom:0.5em;
+}
+
+#description {
+    font-size:small;
+}
+
+#footer {
+    margin-top:2em;
+    border-top:1px solid #ccc;
+}
+
+a:link, a:visited {color:#0066CC}
+a:hover {color: #003366}
+
+h1 {
+    font-size:150%;
+}
+
+h2 {
+    font-size:140%;
+}
+
+table {
+    width:100%;
+}
+
+.name { text-align:left; }
+.size, .mtime {
+    text-align:right;
+}
+.size {
+    padding-right:0.5em;
+}
+
+th {
+    text-align:left;
+}
+
+th, td {
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+}
+
+.form-desc {
+    padding-bottom:1em;
+}
+
 .error {
     padding:0.5em;
-    margin:0.5em;
+    margin-top:0.5em;
     text-align:left;
     background-color:#CC6666;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+.clear {
+    clear:both;
 }

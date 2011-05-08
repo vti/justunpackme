@@ -1,27 +1,71 @@
-<div id="upload">
-    <form method="POST" action="/upload" enctype="multipart/form-data">
-        <div class="input">
-            <input type="file" name="archive" />
-            {{#upload_errors}}
-            <div class="error">{{archive}}</div>
-            {{/upload_errors}}
-        </div>
-        <div class="submit">
-            <input type="submit" value="Upload" />
-        </div>
-    </form>
+<script>
+    $(document).ready(function() {
+        $(".tab_content").hide();
+        $("ul.tabs li:first").addClass("active").show();
 
-<hr />
+        {{^fetch_errors}}
+        $("#upload").show();
+        {{/fetch_errors}}
+        {{#fetch_errors}}
+        $("#fetch").show();
+        $("ul.tabs li").removeClass("active");
+        $("#fetch_link").addClass("active");
+        {{/fetch_errors}}
 
-    <form method="POST" action="/fetch">
-        <div class="input">
-            <input name="url" />
-            {{#fetch_errors}}
-            <div class="error">{{url}}</div>
-            {{/fetch_errors}}
+        $("ul.tabs li").click(function() {
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+            $(".tab_content").hide();
+
+            var activeTab = $(this).find("a").attr("href");
+            $(activeTab).fadeIn();
+            return false;
+        });
+
+    });
+</script>
+
+<div id="menu">
+
+    <ul class="tabs">
+        <li id="upload_link"><a href="#upload">Upload</a></li>
+        <li id="fetch_link"><a href="#fetch">Fetch from URL</a></li>
+    </ul>
+
+    <div class="tab_container">
+
+        <div id="upload" class="tab_content">
+            <div class="form-desc">
+                Upload an archive from your computer.
+            </div>
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+                <div class="input">
+                    <input type="file" name="archive" />
+                    <input type="submit" value="Upload" />
+                    {{#upload_errors}}
+                    <div class="error">{{archive}}</div>
+                    {{/upload_errors}}
+                </div>
+            </form>
         </div>
-        <div class="submit">
-            <input type="submit" value="Fetch" />
+
+        <div id="fetch" class="tab_content">
+            <div class="form-desc">
+                Submit a URL to the archive online. I will download it and unpack
+                for you.
+            </div>
+            <form method="POST" action="/fetch">
+                <div class="input">
+                    Address: <input name="url" />
+                    <input type="submit" value="Fetch" />
+                    {{#fetch_errors}}
+                    <div class="error">{{url}}</div>
+                    {{/fetch_errors}}
+                </div>
+            </form>
         </div>
-    </form>
+
+    </div>
+
+    <div class="clear"></div>
 </div>

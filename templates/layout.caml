@@ -3,8 +3,18 @@
         <meta charset="utf-8">
         <title>Unpacker!</title>
         <link rel="stylesheet" href="/static/style.css">
+        <script type="text/javascript" src="/static/jquery-1.6.min.js"></script>
     </head>
     <body>
-        {{&content}}
+        <div id="container">
+            <div id="header">
+                <h1><a href="/">JustUnpack.me</a></h1>
+                <div id="description">Extract archives online</div>
+            </div>
+            {{&content}}
+            <div id="footer">
+                Created by <a href="http://showmetheco.de">vti</a>
+            </div>
+        </div>
     </body>
 </html>
