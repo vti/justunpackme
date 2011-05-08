@@ -14,7 +14,8 @@ sub run {
     my $self = shift;
 
     my $validator = Input::Validator->new;
-    $validator->field('url')->required(1)->regexp(qr/^$RE{URI}{HTTP}$/);
+    my $re = $RE{URI}{HTTP}{-scheme => qr/https?/};
+    $validator->field('url')->required(1)->regexp(qr/^$re$/);
 
     if ($validator->validate($self->req->parameters)) {
         my $url = $validator->values->{url};
