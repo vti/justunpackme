@@ -1,0 +1,27 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use File::Path qw(remove_tree);
+
+my $ttl = 3600;
+
+my $root = shift @ARGV;
+die "Usage: cleaner <directory>\n" unless $root;
+
+opendir my $dh, $root or die "Can't opendir $root: $!";
+
+while (my $dir = readdir($dh)) {
+    next if $dir eq '.' || $dir eq '..';
+    next unless -d "$root/$dir";
+
+    my $mtime = (stat "$root/$dir")[9];
+
+    if ($mtime < time - $ttl) {
+        warn "Removing $dir";
+        remove_tree("$root/$dir");
+    }
+}
+
+closedir $dh;
