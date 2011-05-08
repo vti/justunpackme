@@ -1,0 +1,27 @@
+<div id="upload">
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <div class="input">
+            <input type="file" name="archive" />
+            {{#upload_errors}}
+            <div class="error">{{archive}}</div>
+            {{/upload_errors}}
+        </div>
+        <div class="submit">
+            <input type="submit" value="Upload" />
+        </div>
+    </form>
+
+<hr />
+
+    <form method="POST" action="/fetch">
+        <div class="input">
+            <input name="url" />
+            {{#fetch_errors}}
+            <div class="error">{{url}}</div>
+            {{/fetch_errors}}
+        </div>
+        <div class="submit">
+            <input type="submit" value="Fetch" />
+        </div>
+    </form>
+</div>
