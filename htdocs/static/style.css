@@ -186,3 +186,7 @@ th, td {
 .clear {
     clear:both;
 }
+
+#comments {
+    margin-top:1em;
+}

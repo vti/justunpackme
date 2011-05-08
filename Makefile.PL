@@ -32,14 +32,15 @@ WriteMakefile(
     ),
 
     PREREQ_PM => {
-        'File::MimeInfo::Magic'   => 0,
-        'File::Unpack'            => 0,
-        'Input::Validator'        => 0,
-        'LWP'                     => 0,
-        'Mozilla::CA'             => 0,
-        'Plack'                   => 0,
-        'Regexp::Common'          => 0,
-        'Try::Tiny'               => 0,
+        'Crypt::SSLeay'         => 0,
+        'File::MimeInfo::Magic' => 0,
+        'File::Unpack'          => 0,
+        'Input::Validator'      => 0,
+        'LWP'                   => 0,
+        'Mozilla::CA'           => 0,
+        'Plack'                 => 0,
+        'Regexp::Common'        => 0,
+        'Try::Tiny'             => 0,
     },
     test => {TESTS => 't/*.t t/*/*.t'}
 );
