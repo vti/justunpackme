@@ -52,8 +52,7 @@ sub startup {
     $routes->add_route(
         '/fetch',
         name     => 'fetch',
-        defaults => {action => 'Fetch'},
-        method   => 'post'
+        defaults => {action => 'Fetch'}
     );
     $routes->add_route(
         '/:path/(*tail)?',
