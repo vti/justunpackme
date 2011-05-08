@@ -28,7 +28,7 @@ sub run {
 
             my $archive = $self->_unpack_archive($upload->path);
 
-            return $self->redirect('view', path => $archive->rel_path);
+            return $self->redirect('view', path => $archive->rel_path, tail => '');
         }
         catch {
             my $e = $_;

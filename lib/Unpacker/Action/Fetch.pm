@@ -30,7 +30,7 @@ sub run {
 
             my $archive = $self->_unpack_archive($fetcher->path);
 
-            return $self->redirect('view', path => $archive->rel_path);
+            return $self->redirect('view', path => $archive->rel_path, tail => '');
         }
         catch {
             my $e = $_;
